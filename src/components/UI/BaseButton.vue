@@ -1,9 +1,8 @@
 <template>
-  <router-view></router-view>
+  <button><slot></slot></button>
 </template>
-
 <script>
 export default {
-  name: "App",
+  name: "BaseButton",
 };
 </script>

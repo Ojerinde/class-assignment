@@ -1,0 +1,141 @@
+.user__card {
+  width: 40rem;
+  height: 38vh;
+  margin-bottom: 2rem;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+
+  &:hover .user__box--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover .user__box--back {
+    transform: rotateY(0);
+  }
+}
+
+@media only screen and (max-width: $bp--large) {
+  .user__card {
+    margin: 0 1rem 2rem;
+  }
+}
+@media only screen and (max-width: $bp--small) {
+  .user__card {
+    width: 45rem;
+  }
+}
+
+@media only screen and (max-width: $bp--smallest) {
+  .user__card {
+    width: 50rem;
+    height: 33vh;
+  }
+}
+
+.user__box {
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.15);
+  transition: all 0.8s ease;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & figure {
+    flex-basis: 35%;
+    height: 100%;
+
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &--front {
+    background-color: rgb(223, 211, 211);
+  }
+
+  &--back {
+    @include flex-center;
+    transform: rotateY(180deg);
+    color: white;
+    background: linear-gradient(
+      to right bottom,
+      $primary-light-color,
+      $primary-dark-color
+    );
+  }
+}
+
+.user__detail {
+  &-box {
+    flex-basis: 60%;
+    & div:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+  &-card {
+    & h4 {
+      font-size: 1.2rem;
+      color: rgb(53, 51, 51);
+      letter-spacing: 0.1rem;
+    }
+    & h2 {
+      font-size: 1.4rem;
+      color: $primary-color;
+    }
+  }
+}
+
+@media only screen and (max-width: $bp--small) {
+  .user__detail {
+    &-box {
+      & div:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+    &-card {
+      & h4 {
+        font-size: 1.4rem;
+      }
+      & h2 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $bp--smallest) {
+  .user__box {
+    & figure {
+      width: 40%;
+    }
+  }
+
+  .user__detail {
+    &-box {
+      flex-basis: 55%;
+      & div:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+    &-card {
+      & h4 {
+        font-size: 1.6rem;
+      }
+      & h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
